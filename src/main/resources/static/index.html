@@ -1,0 +1,40 @@
+<html>
+<script src="js/lib/angular.min.js"></script>
+<script src="js/lib/angular-route.min.js"></script>
+<!--<script src="js/lib/bootstrap.min.js"></script>
+<script src="js/lib/bootstrap.bundle.min.js"></script>-->
+<script src="js/app.js"></script>
+<script src="js/services.js"></script>
+<script src="js/controllers.js"></script>
+
+<link rel="stylesheet" href="css/lib/bootstrap.min.css"/>
+<link rel="stylesheet" href="css/main.css"/>
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body ng-app="demo">
+
+<div class="container" ng-controller="Controller">
+
+    <h3>Подтвердить право владения ресурсом</h3>
+    <div>
+        <label for="url_ip">Введите url/ip</label>
+        <input id="url_ip" ng-model="url"/>
+        <input type="button" value="ok"
+               ng-disabled="!url"
+               ng-click="urlEntered()">
+    </div>
+
+    <div ng-show="fileDataReceived">
+        <label>Для подтверждения права владения URL / IP положите файл {{fileName}} в корень URL / IP и нажмите кнопку "Подтвердить право владения ресурсов"</label>
+        <label>Содержимое файла</label>
+        <textarea disabled="disabled">{{fileContent}}</textarea>
+        <input type="button" value="Подтвердить право владения ресурсов"
+               ng-click="confirmAccess">
+    </div>
+
+</div>
+</body>
+</html>
